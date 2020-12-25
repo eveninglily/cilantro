@@ -1,4 +1,100 @@
-.App {
-  width: 60%;
-  margin: auto;
+/* TODO: Replace w/ local imports */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+#root {
+  height: 100vh;
+  font-family: "Open Sans", sans-serif;
+}
+
+.app {
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+
+  display: grid;
+  grid-template-columns: 220px auto;
+}
+
+.app-sidebar {
+  grid-column: 1;
+}
+
+.app-content {
+  grid-column: 2;
+}
+
+.app-sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background: #dddddd;
+}
+
+.app-sidebar-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-sidebar-link {
+  width: 100%;
+}
+
+a.app-sidebar-link,
+a:link.app-sidebar-link,
+a:visited.app-sidebar-link {
+  text-decoration: none;
+  padding: 1rem 0 1rem 1rem;
+  color: black;
+  font-size: 1.5rem;
+  vertical-align: middle;
+}
+
+a:hover.app-sidebar-link span {
+  border-bottom: 3px solid black;
+}
+
+.app-sidebar-footer {
+  text-align: center;
+}
+
+.collection-holder {
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.collection-title {
+  margin-left: 1rem;
+}
+
+.collection {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.collection-tile {
+  background: #7fdbff;
+  margin: 10px;
+  flex-grow: 1;
+  max-width: calc(33% - 20px);
+  width: calc(33% - 20px);
+  height: 200px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.collection-tile a,
+.collection-tile a:link,
+.collection-tile a:visited {
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: black;
+}
+
+.collection-tile a:hover {
+  border-bottom: 3px solid black;
 }

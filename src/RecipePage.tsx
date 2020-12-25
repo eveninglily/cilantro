@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Recipe.css';
 
 interface Ingredient {
@@ -9,6 +10,7 @@ interface Ingredient {
 
 // it's probably okay if we just make everything a string
 export interface Recipe {
+  id: number;
   title: string;
   serves?: string;
   time?: string;
@@ -22,16 +24,16 @@ export interface Recipe {
 
 interface TagProps {
   text: string;
-  // url: string;
 }
 
 function Tag(props: TagProps) {
-  return <a href="#">{props.text}</a>
+  const url = "/tags/" + props.text
+  return <Link to={url}>{props.text}</Link>
 }
 
 function RecipePage(props: Recipe) {
   const tagHTML = props.tags.map((tag, i) => {
-    return (<span key={i}><Tag text={tag} />{(i + 1) != props.tags.length ? "," : ""} </span>)
+    return (<span key={i}><Tag text={tag} />{(i + 1) !== props.tags.length ? "," : ""} </span>)
   });
 
   const ingredients = props.ingredients.map((i: Ingredient) => {
