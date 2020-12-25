@@ -13,8 +13,9 @@ import {
   useParams,
   Link
 } from "react-router-dom";
-import { Home, Search, Tag } from 'react-feather';
+import { Home, Search, Settings, Tag } from 'react-feather';
 import { CookbookData, Recipe } from './models';
+import SettingsView from './pages/SettingsView';
 
 
 const dataRootURL = "http://localhost:3000/recipes/";
@@ -61,6 +62,7 @@ function makeTagGroups(recipes: Recipe[]): {[tag: string]: Recipe[]} {
 export default function App() {
   const [cookbook, setCookbook] = useState<CookbookData>();
   const [tagIndex, setTagIndex] = useState<{[tag: string]: Recipe[]}>({});
+  const [theme, setTheme] = useState("light");
 
   // TODO: This is really bad, but it works.
   // Fix this when I better understand async again. I wish it was as easy as go.
@@ -101,24 +103,51 @@ export default function App() {
     return <div>Loading...</div>
   }
 
+  let emoji;
+  switch (theme) {
+    case "red": {
+      emoji = "🍎";
+      break;
+    }
+    case "blue": {
+      emoji = "🫐";
+      break;
+    }
+    case "green": {
+      emoji = "🍈";
+      break;
+    }
+    case "dark": {
+      emoji = "🍇";
+      break;
+    }
+    default: {
+      emoji = "🌿";
+    }
+
+  }
+
   return (
     <Router>
 
-    <div className="app">
+    <div className={"app app-theme-" + theme}>
       <div className="app-sidebar">
         <div className="app-sidebar-body">
-        <Link className="app-sidebar-link" to="/">
-          <Home/> <span>Home</span>
-        </Link>
-        <Link className="app-sidebar-link" to="/tags">
-          <Tag /> <span>Tags</span>
-        </Link>
-        <Link className="app-sidebar-link" to="/">
-          <Search /> <span>Search</span>
-        </Link>
+          <Link className="app-sidebar-link" to="/">
+            <Home/> <span>Home</span>
+          </Link>
+          <Link className="app-sidebar-link" to="/tags">
+            <Tag /> <span>Tags</span>
+          </Link>
+          <Link className="app-sidebar-link" to="/">
+            <Search /> <span>Search</span>
+          </Link>
+          <Link className="app-sidebar-link" to="/settings/">
+            <Settings /> <span>Settings</span>
+          </Link>
         </div>
         <div className="app-sidebar-footer">
-          <i>Cilantro v0</i> &middot; Made with 🌿
+          <i>Cilantro v0</i> &middot; Made with {emoji}
         </div>
       </div>
       <div className="app-content">
@@ -131,6 +160,9 @@ export default function App() {
           </Route>
           <Route path="/tags/">
             <TagCloudView index={tagIndex} />
+          </Route>
+          <Route path="/settings/">
+            <SettingsView onUpdate={setTheme}/>
           </Route>
           <Route path="/">
             <CookbookView {...cookbook} />

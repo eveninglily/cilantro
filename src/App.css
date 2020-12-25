@@ -30,6 +30,31 @@ code {
   grid-template-columns: 220px auto;
 }
 
+.app-theme-light {
+  --sidebar-color: #dddddd;
+  --sidebar-text-color: black;
+}
+
+.app-theme-red {
+  --sidebar-color: #ff4136;
+  --sidebar-text-color: black;
+}
+
+.app-theme-blue {
+  --sidebar-color: #0074d9;
+  --sidebar-text-color: black;
+}
+
+.app-theme-green {
+  --sidebar-color: #01ff70;
+  --sidebar-text-color: black;
+}
+
+.app-theme-dark {
+  --sidebar-color: black;
+  --sidebar-text-color: white;
+}
+
 .app-sidebar {
   grid-column: 1;
 }
@@ -43,7 +68,7 @@ code {
   flex-direction: column;
   justify-content: space-between;
 
-  background: #dddddd;
+  background: var(--sidebar-color);
 }
 
 .app-sidebar-body {
@@ -60,7 +85,7 @@ a:link.app-sidebar-link,
 a:visited.app-sidebar-link {
   text-decoration: none;
   padding: 1rem 0 1rem 1rem;
-  color: black;
+  color: var(--sidebar-text-color);
   font-size: 1.5rem;
   vertical-align: middle;
 }
@@ -71,6 +96,7 @@ a:hover.app-sidebar-link span {
 
 .app-sidebar-footer {
   text-align: center;
+  color: var(--sidebar-text-color);
 }
 
 .collection-holder {
