@@ -16,9 +16,7 @@ TODO
 
 Some things I'm thinking of:
 
-- Sidebar for home / tags / search?
-- "Collections" of some sort, indicate a stronger relationship than just tags do
-- More styling, aiming for simple + somewhat customizable. We'll see, I'll probably ship with a few themes.
+- settings/themes
 - Electron app?
 - Have a git repo as source of truth for recipes and pull them in
 - Editor to help format markdown and then prompt you to update it in your repo

@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 import matter from 'gray-matter'
 
 import './App.css';
-import RecipePage, { Recipe } from './RecipePage';
-import Collection from './Collection';
+import RecipeView from './pages/RecipeView';
+import CookbookView from './pages/CookbookView';
 
 import {
   BrowserRouter as Router,
@@ -13,7 +13,8 @@ import {
   useParams,
   Link
 } from "react-router-dom";
-import { Book, Home, Search, Tag } from 'react-feather';
+import { Home, Search, Tag } from 'react-feather';
+import { CookbookData, Recipe } from './models';
 
 
 const dataRootURL = "http://localhost:3000/recipes/";
@@ -23,7 +24,7 @@ function parseChowdownMd(id: number, data: string): Recipe {
   console.log(parsed)
 
   const title = parsed.data.title;
-  const tags = parsed.data.tags.split(",");
+  const tags = parsed.data.tags.split(",").map((t: string) => t.trim());
   const imgUrl = parsed.data.image;
   const steps = parsed.data.directions;
   const ingredients = parsed.data.ingredients.map((s: string) => {
@@ -43,15 +44,23 @@ function parseChowdownMd(id: number, data: string): Recipe {
 
 }
 
-export interface CookbookData {
-  title: string;
-  recipes: Recipe[];
-  //collections: Collection
-  body: string;
+function makeTagGroups(recipes: Recipe[]): {[tag: string]: Recipe[]} {
+  const mapping: {[tag: string]: Recipe[]} = {};
+  for (let r of recipes) {
+    for (const t of r.tags) {
+      if (!(t in mapping)) {
+        mapping[t] = [];
+      }
+      mapping[t].push(r)
+    }
+  }
+
+  return mapping
 }
 
 export default function App() {
   const [cookbook, setCookbook] = useState<CookbookData>();
+  const [tagIndex, setTagIndex] = useState<{[tag: string]: Recipe[]}>({});
 
   // TODO: This is really bad, but it works.
   // Fix this when I better understand async again. I wish it was as easy as go.
@@ -63,7 +72,7 @@ export default function App() {
       const parsed = matter(data)
 
       const recipes = parsed.data.recipes.map(async (name: string, i: number) => {
-        const recipeResp = await fetch(dataRootURL + "recipes/" + name)
+        const recipeResp = await fetch(dataRootURL + "recipes/" + name + ".md")
         const recipeData = await recipeResp.text()
         return parseChowdownMd(i, recipeData);
       });
@@ -81,6 +90,13 @@ export default function App() {
     load();
   }, []);
 
+  useEffect(() => {
+    if (cookbook) {
+      const i = makeTagGroups(cookbook.recipes);
+      setTagIndex(i);
+    }
+  }, [cookbook])
+
   if (cookbook === undefined) {
     return <div>Loading...</div>
   }
@@ -94,10 +110,7 @@ export default function App() {
         <Link className="app-sidebar-link" to="/">
           <Home/> <span>Home</span>
         </Link>
-        <Link className="app-sidebar-link" to="/">
-          <Book/> <span>Collections</span>
-        </Link>
-        <Link className="app-sidebar-link" to="/">
+        <Link className="app-sidebar-link" to="/tags">
           <Tag /> <span>Tags</span>
         </Link>
         <Link className="app-sidebar-link" to="/">
@@ -113,9 +126,14 @@ export default function App() {
           <Route path="/r/:id">
             <RecipeWrapper recipes={cookbook.recipes}/>
           </Route>
-
+          <Route path="/tags/:tag">
+            <TagPageWrapper index={tagIndex}/>
+          </Route>
+          <Route path="/tags/">
+            <TagCloudView index={tagIndex} />
+          </Route>
           <Route path="/">
-            <Collection {...cookbook} />
+            <CookbookView {...cookbook} />
           </Route>
         </Switch>
       </div>
@@ -125,16 +143,32 @@ export default function App() {
   );
 }
 
-interface RecipeWrapperProps {
-  recipes: Recipe[]
+function TagCloudView(props: {index: {[tag: string]: Recipe[]}}) {
+  const tags = [];
+  for(const t in props.index) {
+    tags.push(t);
+  }
+
+  const tLinks = tags.map((t, i) => {
+    const url = "/tags/" + t
+    return <span key={i}><Link to={url}>{t}</Link>{(i + 1) !== tags.length ? "," : ""}</span>;
+  });
+
+  return <div>{tLinks}</div>
 }
 
-interface RecipeWrapperParams {
-  id: string;
+function TagPageWrapper(props: {index: {[tag: string]: Recipe[]}}) {
+  const { tag } = useParams<{ tag: string }>();
+  const tagbookData = {
+    title: tag,
+    body: "",
+    recipes: props.index[tag],
+  }
+  return <CookbookView {...tagbookData} />
 }
 
-function RecipeWrapper(props: RecipeWrapperProps) {
-  const { id } = useParams<RecipeWrapperParams>();
+function RecipeWrapper(props: {recipes: Recipe[]}) {
+  const { id } = useParams<{id: string}>();
   const x = Number(id);
-  return <RecipePage {...props.recipes[x]} />
+  return <RecipeView {...props.recipes[x]} />
 }

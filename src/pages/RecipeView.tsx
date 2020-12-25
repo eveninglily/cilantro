@@ -1,37 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Recipe.css';
+import { Ingredient, Recipe } from '../models';
+import '../App.css';
 
-interface Ingredient {
-  amount: string;
-  // TODO: name this better.
-  item: string;
-}
-
-// it's probably okay if we just make everything a string
-export interface Recipe {
-  id: number;
-  title: string;
-  serves?: string;
-  time?: string;
-  bodyText?: string;
-  imgUrl?: string;
-  tags: string[];
-  ingredients: Ingredient[];
-  steps: string[];
-  sourceURL?: string;
-}
-
-interface TagProps {
-  text: string;
-}
-
-function Tag(props: TagProps) {
+function Tag(props: {text: string}) {
   const url = "/tags/" + props.text
   return <Link to={url}>{props.text}</Link>
 }
 
-function RecipePage(props: Recipe) {
+export default function RecipeView(props: Recipe) {
   const tagHTML = props.tags.map((tag, i) => {
     return (<span key={i}><Tag text={tag} />{(i + 1) !== props.tags.length ? "," : ""} </span>)
   });
@@ -81,5 +58,3 @@ function RecipePage(props: Recipe) {
     </div>
   );
 }
-
-export default RecipePage;

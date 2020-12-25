@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { CookbookData } from './App';
-import {Recipe} from "./RecipePage"
+import { CookbookData } from '../models';
 
-export default function Collection(props: CookbookData) {
+import "../App.css"
+
+export default function CookbookView(props: CookbookData) {
     const tiles = props.recipes.map(r => {
-        const href = "./r/" + r.id
+        const href = "/r/" + r.id
         return (
             <div className="collection-tile">
                 <Link to={href}>{r.title}</Link>
