@@ -16,6 +16,7 @@ import {
 import { Home, Search, Settings, Tag } from 'react-feather';
 import { CookbookData, Recipe } from './models';
 import SettingsView from './pages/SettingsView';
+import { SearchView } from './pages/SearchView';
 
 
 const dataRootURL = "http://localhost:3000/recipes/";
@@ -139,7 +140,7 @@ export default function App() {
           <Link className="app-sidebar-link" to="/tags">
             <Tag /> <span>Tags</span>
           </Link>
-          <Link className="app-sidebar-link" to="/">
+          <Link className="app-sidebar-link" to="/search">
             <Search /> <span>Search</span>
           </Link>
           <Link className="app-sidebar-link" to="/settings/">
@@ -160,6 +161,9 @@ export default function App() {
           </Route>
           <Route path="/tags/">
             <TagCloudView index={tagIndex} />
+          </Route>
+          <Route path="/search/">
+            <SearchView recipes={cookbook.recipes}/>
           </Route>
           <Route path="/settings/">
             <SettingsView onUpdate={setTheme}/>

@@ -17,7 +17,7 @@ export default function CookbookView(props: CookbookData) {
     return (
         <div className="collection-holder">
             <h1 className="collection-title">{props.title}</h1>
-            <pre>{props.body}</pre>
+            <pre className="collection-description">{props.body}</pre>
             <div className="collection">
             {tiles}
         </div>

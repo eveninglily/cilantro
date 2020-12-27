@@ -108,6 +108,11 @@ a:hover.app-sidebar-link span {
   margin-left: 1rem;
 }
 
+.collection-description {
+  margin-left: 1rem;
+  font-family: "Open Sans", sans-serif !important;
+}
+
 .collection {
   display: flex;
   flex-direction: row;
