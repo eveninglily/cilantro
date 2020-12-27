@@ -32,7 +32,10 @@ function parseChowdownMd(id: number, data: string): Recipe {
   const ingredients = parsed.data.ingredients.map((s: string) => {
     // want to look for "N" or "N/M" or "N and M" or "N or M"
     return {amount: "", item: s}
-  })
+  });
+  const serves = parsed.data.yield;
+  const time = parsed.data.time;
+  const sourceURL = parsed.data.source;
 
   return {
     id,
@@ -40,6 +43,9 @@ function parseChowdownMd(id: number, data: string): Recipe {
     tags,
     imgUrl,
     steps,
+    serves,
+    sourceURL,
+    time,
     ingredients,
     bodyText: parsed.content
   }
@@ -132,8 +138,8 @@ export default function App() {
     <Router>
 
     <div className={"app app-theme-" + theme}>
-      <div className="app-sidebar">
-        <div className="app-sidebar-body">
+      <nav className="app-sidebar">
+        <section className="app-sidebar-body">
           <Link className="app-sidebar-link" to="/">
             <Home/> <span>Home</span>
           </Link>
@@ -146,12 +152,12 @@ export default function App() {
           <Link className="app-sidebar-link" to="/settings/">
             <Settings /> <span>Settings</span>
           </Link>
-        </div>
-        <div className="app-sidebar-footer">
+        </section>
+        <footer className="app-sidebar-footer">
           <i>Cilantro v0</i> &middot; Made with {emoji}
-        </div>
-      </div>
-      <div className="app-content">
+        </footer>
+      </nav>
+      <main className="app-content">
       <Switch>
           <Route path="/r/:id">
             <RecipeWrapper recipes={cookbook.recipes}/>
@@ -172,7 +178,7 @@ export default function App() {
             <CookbookView {...cookbook} />
           </Route>
         </Switch>
-      </div>
+      </main>
     </div>
 
     </Router>

@@ -3,6 +3,8 @@ layout: recipe
 title: "Crispy Carrots"
 image: crispy-carrots.jpg
 tags: veg, party
+yield: 2 servings
+time: 50 minutes
 
 ingredients:
   - 1 lb carrot sticks (or baby carrots)

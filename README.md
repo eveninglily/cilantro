@@ -1,12 +1,26 @@
 # Cilantro
 
-Inspired by [Chowdown](https://chowdown.io), but written in React. Any recipe that works in there should work in here.
+Cilantro is a plaintext recipe viewer. Store your recipes as text files, but get all the benefits of a rich viewer. Inspired by [Chowdown](https://chowdown.io), but written from the ground up in React.
 
 # Recipe Format
 
-As of writing, we basically use the format from Chowdown. Specifically, we use the MD front matter for much of the important info.
+Recipes are stored as `markdown` files, with all the action happening in the front matter section.
 
-I'll probably support more formats later, if there are reasonable formats to import from.
+TODO: Example & Explain
+
+As of now, anything that works in Chowdown should work here. We're working on adding support for richer information without breaking backwards compatibility and exportability.
+
+Support is being considered for an importer for other recipe formats.
+
+## Exportability
+
+Since all the recipes are stored in plaintext, it's very easy to export them, back them up, and sync with your service of choice.
+
+The recipe pages also have
+
+- rich embed data
+- https://schema.org/Recipe data
+- Required markup for h-recipe and hRecipe formats
 
 # Getting Started
 
@@ -16,7 +30,6 @@ TODO
 
 Some things I'm thinking of:
 
-- settings/themes
 - Electron app?
 - Have a git repo as source of truth for recipes and pull them in
 - Editor to help format markdown and then prompt you to update it in your repo
