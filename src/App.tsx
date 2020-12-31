@@ -63,15 +63,14 @@ function makeTagGroups(recipes: Recipe[]): {[tag: string]: Recipe[]} {
   return mapping
 }
 
-const loc = window.location.host; 
+const loc = window.location.protocol + "//" + window.location.host + process.env.PUBLIC_URL; 
 
 export default function App() {
   const [cookbook, setCookbook] = useState<CookbookData>();
   const [tagIndex, setTagIndex] = useState<{[tag: string]: Recipe[]}>({});
   const [settings, setSettings] = useState<AppSettings>({
-    dataRootURL: "http://localhost:3000/recipes/", indexFile: "README.md", theme: "light", sidebarCompact: true,
+    dataRootURL: loc + "/recipes/", indexFile: "README.md", theme: "light", sidebarCompact: true,
   });
-  console.log(loc);
 
  // TODO: This is really bad, but it works.
   // Fix this when I better understand async again. I wish it was as easy as go.
