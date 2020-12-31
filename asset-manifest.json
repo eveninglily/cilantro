@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/cilantro/static/css/main.ab1846f5.chunk.css",
+    "main.js": "/cilantro/static/js/main.0ddc4070.chunk.js",
+    "main.js.map": "/cilantro/static/js/main.0ddc4070.chunk.js.map",
+    "runtime-main.js": "/cilantro/static/js/runtime-main.613a0bbc.js",
+    "runtime-main.js.map": "/cilantro/static/js/runtime-main.613a0bbc.js.map",
+    "static/js/2.2ef66e67.chunk.js": "/cilantro/static/js/2.2ef66e67.chunk.js",
+    "static/js/2.2ef66e67.chunk.js.map": "/cilantro/static/js/2.2ef66e67.chunk.js.map",
+    "index.html": "/cilantro/index.html",
+    "static/css/main.ab1846f5.chunk.css.map": "/cilantro/static/css/main.ab1846f5.chunk.css.map",
+    "static/js/2.2ef66e67.chunk.js.LICENSE.txt": "/cilantro/static/js/2.2ef66e67.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.613a0bbc.js",
+    "static/js/2.2ef66e67.chunk.js",
+    "static/css/main.ab1846f5.chunk.css",
+    "static/js/main.0ddc4070.chunk.js"
+  ]
+}
