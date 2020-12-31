@@ -38,13 +38,14 @@ export function SearchView(props: {recipes: Recipe[]}) {
   }, [props, searchText]);
 
   const cookbook = {
-    title: "Search resutls",
+    title: "Results",
     body: "",
     recipes: filteredRecipes
   }
 
     return (
         <div>
+          <h1>Search</h1>
             <input type='text' value={searchText} onChange={(evt) => setSearchText(evt.target.value)}/>
             <CookbookView {...cookbook} />
     </div>);

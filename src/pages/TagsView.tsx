@@ -14,7 +14,8 @@ export function TagCloudView(props: {index: {[tag: string]: Recipe[]}}) {
       return <span key={i}><Link to={url}>{t}</Link>{(i + 1) !== tags.length ? "," : ""}</span>;
     });
   
-    return <div>{tLinks}</div>
+    return <div>
+        <h1>Tags</h1>{tLinks}</div>
   }
   
 export function TagPageWrapper(props: {index: {[tag: string]: Recipe[]}}) {
