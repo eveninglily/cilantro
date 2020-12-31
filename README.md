@@ -6,11 +6,30 @@ Cilantro is a plaintext recipe viewer. Store your recipes as text files, but get
 
 Recipes are stored as `markdown` files, with all the action happening in the front matter section.
 
-TODO: Example & Explain
+TODO: Put an actual recipe here :)
+```markdown
+---
+title: "My recipe"
+image: "my-recipe.png"
+tags: dinner, chicken, spicy
+yield: 2 servings
+ingredients:
+  - 1 lb Chicken
+  - .5 Tbsp cumin
+  - Canola oil
+  
+directions:
+  - Step 1
+  - Step 2
+  - Step 3
+---
+
+This is the body text of our example recipe!
+```
 
 As of now, anything that works in Chowdown should work here. We're working on adding support for richer information without breaking backwards compatibility and exportability.
 
-Support is being considered for an importer for other recipe formats.
+Long-term, I'd like to support importing other recipe formats into this one.
 
 ## Exportability
 
@@ -25,11 +44,3 @@ The recipe pages also have
 # Getting Started
 
 TODO
-
-# Plans
-
-Some things I'm thinking of:
-
-- Electron app?
-- Have a git repo as source of truth for recipes and pull them in
-- Editor to help format markdown and then prompt you to update it in your repo
