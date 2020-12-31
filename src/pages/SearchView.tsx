@@ -38,7 +38,7 @@ export function SearchView(props: {recipes: Recipe[]}) {
   }, [props, searchText]);
 
   const cookbook = {
-    title: "Results",
+    title: "Result",
     body: "",
     recipes: filteredRecipes
   }

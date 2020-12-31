@@ -63,13 +63,11 @@ function makeTagGroups(recipes: Recipe[]): {[tag: string]: Recipe[]} {
   return mapping
 }
 
-const loc = window.location.protocol + "//" + window.location.host + process.env.PUBLIC_URL; 
-
 export default function App() {
   const [cookbook, setCookbook] = useState<CookbookData>();
   const [tagIndex, setTagIndex] = useState<{[tag: string]: Recipe[]}>({});
   const [settings, setSettings] = useState<AppSettings>({
-    dataRootURL: loc + "/recipes/", indexFile: "README.md", theme: "light", sidebarCompact: true,
+    dataRootURL: process.env.PUBLIC_URL + "/recipes/", indexFile: "README.md?raw=true", theme: "light", sidebarCompact: true,
   });
 
  // TODO: This is really bad, but it works.
@@ -82,7 +80,7 @@ export default function App() {
       const parsed = matter(data)
 
       const recipes = parsed.data.recipes.map(async (name: string, i: number) => {
-        const recipeResp = await fetch(settings.dataRootURL + "recipes/" + name + ".md")
+        const recipeResp = await fetch(settings.dataRootURL + "recipes/" + name + ".md?raw=true")
         const recipeData = await recipeResp.text()
         return parseChowdownMd(i, recipeData);
       });
@@ -128,7 +126,7 @@ export default function App() {
 
   return (
     <SettingsContext.Provider value={settings}>
-      <HashRouter>
+      <HashRouter basename={process.env.PUBLIC_URL}>
         <div className={"app app-theme-" + settings.theme}>
           <Sidebar />
           <main className="app-content">
