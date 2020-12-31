@@ -1,11 +1,11 @@
 ---
 title: "Evan's Recipes"
 recipes:
-  - te st
+  - myrecipe
 ---
 
-This is my cookbook :)
+This is my cookbook!
 
-testing many lines
+This supports several lines.
 
-aaaa
+It does not currently support any other markdown formatting, but might in the future!

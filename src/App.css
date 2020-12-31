@@ -26,8 +26,7 @@ code {
   padding: 0px;
   margin: 0px;
 
-  display: grid;
-  grid-template-columns: 220px auto;
+  display: flex;
 }
 
 .app-theme-light {
@@ -55,20 +54,24 @@ code {
   --sidebar-text-color: white;
 }
 
-.app-sidebar {
-  grid-column: 1;
-}
-
 .app-content {
-  grid-column: 2;
+  width: 100%;
 }
 
-.app-sidebar {
+.app-sidebar, .app-sidebar-c {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
   background: var(--sidebar-color);
+}
+
+.app-sidebar {
+  width: 220px;
+}
+
+.app-sidebar-c {
+  width: 60px;
 }
 
 .app-sidebar-body {
@@ -78,6 +81,10 @@ code {
 
 .app-sidebar-link {
   width: 100%;
+}
+
+.hidden {
+  display: none;
 }
 
 a.app-sidebar-link,

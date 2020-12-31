@@ -6,11 +6,13 @@
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.6.0",
+    "@types/classnames": "^2.2.11",
     "@types/jest": "^26.0.19",
     "@types/node": "^12.19.11",
     "@types/react": "^16.14.2",
     "@types/react-dom": "^16.9.10",
     "@types/react-router-dom": "^5.1.6",
+    "classnames": "^2.2.6",
     "feather-icons": "^4.28.0",
     "fuse.js": "^6.4.3",
     "gray-matter": "^4.0.2",
@@ -45,6 +47,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {}
+  }
 }

@@ -1,11 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { SettingsContext } from '../Settings';
 
-export default function SettingsView(props: {onUpdate: (theme: string) => void}) {
-  const [selectedTheme, setSelectedTheme] = useState("light");
+export default function SettingsView(props: {onUpdate: (theme: string) => void, updateCompact: (sidebarCompact: boolean) => void}) {
+  const settings = useContext(SettingsContext);
+  const [selectedTheme, setSelectedTheme] = useState(settings.theme);
+  const [compactSidebar, setCompactSidebar] = useState(settings.sidebarCompact);
 
   useEffect(() => {
-    props.onUpdate(selectedTheme)
-  }, [selectedTheme, props]);
+    if (settings.theme !== selectedTheme) {
+      props.onUpdate(selectedTheme)
+    }
+  }, [selectedTheme, props, settings]);
+
+  useEffect(() => {
+    if (settings.sidebarCompact !== compactSidebar) {
+      props.updateCompact(compactSidebar)
+    }
+  }, [compactSidebar, props, settings]);
 
   return (
     <div>
@@ -78,6 +89,8 @@ export default function SettingsView(props: {onUpdate: (theme: string) => void})
           </label>
         </div>
       </form>
+      <h2>Compact Sidebar</h2>
+      <label><input type="checkbox" checked={compactSidebar} onChange={() => setCompactSidebar(!compactSidebar)} /> Compact sidebar</label>
     </div>
   );
 }

@@ -1,11 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Ingredient, Recipe } from '../models';
 import '../App.css';
 
 function Tag(props: {text: string}) {
   const url = "/tags/" + props.text
   return <Link to={url}>{props.text}</Link>
+}
+
+export function RecipeWrapper(props: {recipes: Recipe[]}) {
+  const { id } = useParams<{id: string}>();
+  const x = Number(id);
+  return <RecipeView {...props.recipes[x]} />
 }
 
 export default function RecipeView(props: Recipe) {
@@ -30,7 +36,6 @@ export default function RecipeView(props: Recipe) {
       </li>
     )
   });
-
 
   return (
     <article className="recipe hRecipe h-recipe">
