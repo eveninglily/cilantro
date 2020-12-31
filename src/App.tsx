@@ -7,9 +7,9 @@ import { RecipeWrapper } from './pages/RecipeView';
 import CookbookView from './pages/CookbookView';
 
 import {
-  BrowserRouter as Router,
   Switch,
   Route,
+  HashRouter,
 } from "react-router-dom";
 import { CookbookData, Recipe } from './models';
 import SettingsView from './pages/SettingsView';
@@ -98,7 +98,7 @@ export default function App() {
     }
     
     load();
-  }, []);
+  }, [settings]);
 
   useEffect(() => {
     if (cookbook) {
@@ -128,7 +128,7 @@ export default function App() {
 
   return (
     <SettingsContext.Provider value={settings}>
-      <Router>
+      <HashRouter>
         <div className={"app app-theme-" + settings.theme}>
           <Sidebar />
           <main className="app-content">
@@ -154,7 +154,7 @@ export default function App() {
             </Switch>
           </main>
         </div>
-      </Router>
+      </HashRouter>
     </SettingsContext.Provider>
   );
 }
