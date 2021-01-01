@@ -30,7 +30,7 @@ code {
 }
 
 .app-theme-light {
-  --text-color:black;
+  --text-color: black;
   --tag-link-color: #0074d9;
   --content-bg-color: white;
   --sidebar-color: #dddddd;
@@ -38,7 +38,7 @@ code {
 }
 
 .app-theme-red {
-  --text-color:black;
+  --text-color: black;
   --tag-link-color: #0074d9;
   --content-bg-color: white;
   --sidebar-color: #ff4136;
@@ -46,7 +46,7 @@ code {
 }
 
 .app-theme-blue {
-  --text-color:black;
+  --text-color: black;
   --tag-link-color: #0074d9;
   --content-bg-color: white;
   --sidebar-color: #0074d9;
@@ -75,7 +75,8 @@ code {
   background: var(--content-bg-color);
 }
 
-.app-sidebar, .app-sidebar-c {
+.app-sidebar,
+.app-sidebar-c {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -148,7 +149,6 @@ a:hover.app-sidebar-link span {
   flex-grow: 1;
   max-width: calc(33% - 20px);
   width: calc(33% - 20px);
-  
 }
 
 a.collection-tile-text,
@@ -220,15 +220,18 @@ a:visited.collection-tile-text {
   grid-column: 2;
 }
 
-.recipe-tags a, .recipe-tags a:link, .recipe-tags a:visited {
-  color: var(--tag-link-color)
+.recipe-tags a,
+.recipe-tags a:link,
+.recipe-tags a:visited {
+  color: var(--tag-link-color);
 }
 
 .collection-tile {
   height: 200px;
   background: #7fdbff;
   background-size: cover;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
 .collection-tile-text {

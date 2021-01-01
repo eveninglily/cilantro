@@ -1,20 +1,23 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { SettingsContext } from '../Settings';
+import React, { useContext, useEffect, useState } from "react";
+import { SettingsContext } from "../Settings";
 
-export default function SettingsView(props: {onUpdate: (theme: string) => void, updateCompact: (sidebarCompact: boolean) => void}) {
+export default function SettingsView(props: {
+  onUpdate: (theme: string) => void;
+  updateCompact: (sidebarCompact: boolean) => void;
+}) {
   const settings = useContext(SettingsContext);
   const [selectedTheme, setSelectedTheme] = useState(settings.theme);
   const [compactSidebar, setCompactSidebar] = useState(settings.sidebarCompact);
 
   useEffect(() => {
     if (settings.theme !== selectedTheme) {
-      props.onUpdate(selectedTheme)
+      props.onUpdate(selectedTheme);
     }
   }, [selectedTheme, props, settings]);
 
   useEffect(() => {
     if (settings.sidebarCompact !== compactSidebar) {
-      props.updateCompact(compactSidebar)
+      props.updateCompact(compactSidebar);
     }
   }, [compactSidebar, props, settings]);
 
@@ -29,7 +32,7 @@ export default function SettingsView(props: {onUpdate: (theme: string) => void, 
               type="radio"
               name="theme"
               value="light"
-              checked={selectedTheme==="light"}
+              checked={selectedTheme === "light"}
               onChange={() => setSelectedTheme("light")}
               className="theme-radio-input"
             />
@@ -42,7 +45,7 @@ export default function SettingsView(props: {onUpdate: (theme: string) => void, 
               type="radio"
               name="theme"
               value="blue"
-              checked={selectedTheme==="blue"}
+              checked={selectedTheme === "blue"}
               onChange={() => setSelectedTheme("blue")}
               className="theme-radio-input"
             />
@@ -55,7 +58,7 @@ export default function SettingsView(props: {onUpdate: (theme: string) => void, 
               type="radio"
               name="theme"
               value="green"
-              checked={selectedTheme==="green"}
+              checked={selectedTheme === "green"}
               onChange={() => setSelectedTheme("green")}
               className="theme-radio-input"
             />
@@ -68,7 +71,7 @@ export default function SettingsView(props: {onUpdate: (theme: string) => void, 
               type="radio"
               name="theme"
               value="red"
-              checked={selectedTheme==="red"}
+              checked={selectedTheme === "red"}
               onChange={() => setSelectedTheme("red")}
               className="theme-radio-input"
             />
@@ -81,7 +84,7 @@ export default function SettingsView(props: {onUpdate: (theme: string) => void, 
               type="radio"
               name="theme"
               value="dark"
-              checked={selectedTheme==="dark"}
+              checked={selectedTheme === "dark"}
               onChange={() => setSelectedTheme("dark")}
               className="theme-radio-input"
             />
@@ -90,7 +93,14 @@ export default function SettingsView(props: {onUpdate: (theme: string) => void, 
         </div>
       </form>
       <h2>Compact Sidebar</h2>
-      <label><input type="checkbox" checked={compactSidebar} onChange={() => setCompactSidebar(!compactSidebar)} /> Compact sidebar</label>
+      <label>
+        <input
+          type="checkbox"
+          checked={compactSidebar}
+          onChange={() => setCompactSidebar(!compactSidebar)}
+        />{" "}
+        Compact sidebar
+      </label>
     </div>
   );
 }

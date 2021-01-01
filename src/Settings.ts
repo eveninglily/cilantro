@@ -9,7 +9,10 @@ export interface AppSettings {
 
 export const SettingsContext = React.createContext<AppSettings>({
   // TODO: update
-  dataRootURL: "http://localhost:3000/recipes/", indexFile: "README.md", theme: "light", sidebarCompact: false,
+  dataRootURL: "http://localhost:3000/recipes/",
+  indexFile: "README.md",
+  theme: "light",
+  sidebarCompact: false,
 });
 
 export function getEmoji(settings: AppSettings): string {
