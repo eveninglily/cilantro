@@ -16,7 +16,7 @@ export function RecipeWrapper(props: {recipes: Recipe[]}) {
 
 export default function RecipeView(props: Recipe) {
   const tagHTML = props.tags.map((tag, i) => {
-    return (<span key={i}><Tag text={tag} />{(i + 1) !== props.tags.length ? "," : ""} </span>)
+    return (<span className="recipe-tag" key={i}><Tag text={tag} />{(i + 1) !== props.tags.length ? "," : ""} </span>)
   });
 
   const ingredients = props.ingredients.map((i: Ingredient) => {
@@ -37,17 +37,20 @@ export default function RecipeView(props: Recipe) {
     )
   });
 
+  const imgURL = process.env.PUBLIC_URL + "/recipes/images/" + props.imgUrl
+
   return (
     <article className="recipe hRecipe h-recipe">
       <h1 className="recipe-title fn p-name">{props.title}</h1>
       <header className="recipe-meta">
-        {props.serves && <span className="recipe-serves yield">Yield {props.serves}</span>}
-        {props.time && <span className="recipe-time">Time {props.time}</span>}
-        {props.sourceURL && <a href={props.sourceURL} className="recipe-source">Source</a>}
+        {props.serves && <span className="recipe-serves yield"><b>Yield</b> {props.serves}</span>}
+        {props.time && <span className="recipe-time"><b>Time</b> {props.time}</span>}
+        {props.sourceURL && <span><b>Source</b> <a href={props.sourceURL} className="recipe-source">Link</a></span>}
+        {props.sourceAuthor && <span className="recipe-author"><b>By</b> {props.sourceAuthor} </span>}
       </header>
       <div className="recipe-info">
         <p className="recipe-description p-summary summary">{props.bodyText}</p>
-        <img className="recipe-picture u-photo photo" src={props.imgUrl} alt={props.title}/>
+        <img className="recipe-picture u-photo photo" src={imgURL} alt={props.title}/>
       </div>
       <div className="recipe-tags">{tagHTML}</div>
       <div className="recipe-body">

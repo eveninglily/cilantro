@@ -11,7 +11,7 @@ export function TagCloudView(props: {index: {[tag: string]: Recipe[]}}) {
   
     const tLinks = tags.map((t, i) => {
       const url = "/tags/" + t
-      return <span key={i}><Link to={url}>{t}</Link>{(i + 1) !== tags.length ? "," : ""}</span>;
+      return <span className="recipe-tags" key={i}><Link to={url}>{t}</Link>{(i + 1) !== tags.length ? "," : ""}</span>;
     });
   
     return <div>

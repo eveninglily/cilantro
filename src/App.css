@@ -30,32 +30,49 @@ code {
 }
 
 .app-theme-light {
+  --text-color:black;
+  --tag-link-color: #0074d9;
+  --content-bg-color: white;
   --sidebar-color: #dddddd;
   --sidebar-text-color: black;
 }
 
 .app-theme-red {
+  --text-color:black;
+  --tag-link-color: #0074d9;
+  --content-bg-color: white;
   --sidebar-color: #ff4136;
   --sidebar-text-color: black;
 }
 
 .app-theme-blue {
+  --text-color:black;
+  --tag-link-color: #0074d9;
+  --content-bg-color: white;
   --sidebar-color: #0074d9;
   --sidebar-text-color: black;
 }
 
 .app-theme-green {
+  --text-color: black;
+  --tag-link-color: #0074d9;
+  --content-bg-color: white;
   --sidebar-color: #01ff70;
   --sidebar-text-color: black;
 }
 
 .app-theme-dark {
+  --text-color: white;
+  --tag-link-color: #7fdbff;
+  --content-bg-color: #121212;
   --sidebar-color: black;
   --sidebar-text-color: white;
 }
 
 .app-content {
+  color: var(--text-color);
   width: 100%;
+  background: var(--content-bg-color);
 }
 
 .app-sidebar, .app-sidebar-c {
@@ -126,24 +143,18 @@ a:hover.app-sidebar-link span {
   flex-wrap: wrap;
 }
 
-.collection-tile {
-  background: #7fdbff;
+.collection-tile-wrapper {
   margin: 10px;
   flex-grow: 1;
   max-width: calc(33% - 20px);
   width: calc(33% - 20px);
-  height: 200px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  
 }
 
-.collection-tile a,
-.collection-tile a:link,
-.collection-tile a:visited {
-  text-decoration: none;
-  font-size: 1.5rem;
+a.collection-tile-text,
+a:link.collection-tile-text,
+a:visited.collection-tile-text {
+  font-size: 2.5rem;
   color: black;
 }
 
@@ -163,7 +174,12 @@ a:hover.app-sidebar-link span {
 .recipe-info {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   padding-bottom: 1rem;
+}
+
+.recipe-picture {
+  max-width: 40%;
 }
 
 .recipe-tags {
@@ -202,4 +218,19 @@ a:hover.app-sidebar-link span {
 
 .ingredient-item {
   grid-column: 2;
+}
+
+.recipe-tags a, .recipe-tags a:link, .recipe-tags a:visited {
+  color: var(--tag-link-color)
+}
+
+.collection-tile {
+  height: 200px;
+  background: #7fdbff;
+  background-size: cover;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.collection-tile-text {
+  font-size: 2rem;
 }

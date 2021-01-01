@@ -23,4 +23,5 @@ export interface Recipe {
   ingredients: Ingredient[];
   steps: string[];
   sourceURL?: string;
+  sourceAuthor?: string;
 }

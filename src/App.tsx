@@ -19,7 +19,7 @@ import Sidebar from './components/Sidebar';
 import { TagCloudView, TagPageWrapper } from './pages/TagsView';
 
 function parseChowdownMd(id: number, data: string): Recipe {
-  const parsed = matter(data)
+  const parsed = matter(data);
   console.log(parsed)
 
   const title = parsed.data.title;
@@ -32,7 +32,8 @@ function parseChowdownMd(id: number, data: string): Recipe {
   });
   const serves = parsed.data.yield;
   const time = parsed.data.time;
-  const sourceURL = parsed.data.source;
+  const sourceURL = parsed.data.sourceURL;
+  const sourceAuthor = parsed.data.sourceAuthor;
 
   return {
     id,
@@ -42,6 +43,7 @@ function parseChowdownMd(id: number, data: string): Recipe {
     steps,
     serves,
     sourceURL,
+    sourceAuthor,
     time,
     ingredients,
     bodyText: parsed.content
