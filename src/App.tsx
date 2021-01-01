@@ -126,7 +126,7 @@ export default function App() {
 
   return (
     <SettingsContext.Provider value={settings}>
-      <HashRouter basename={process.env.PUBLIC_URL}>
+      <HashRouter>
         <div className={"app app-theme-" + settings.theme}>
           <Sidebar />
           <main className="app-content">

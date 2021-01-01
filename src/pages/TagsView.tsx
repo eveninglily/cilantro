@@ -21,7 +21,7 @@ export function TagCloudView(props: {index: {[tag: string]: Recipe[]}}) {
 export function TagPageWrapper(props: {index: {[tag: string]: Recipe[]}}) {
     const { tag } = useParams<{ tag: string }>();
     const tagbookData = {
-      title: tag,
+      title: "Tag: " + tag,
       body: "",
       recipes: props.index[tag],
     }
