@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/cilantro/static/css/main.ab1846f5.chunk.css",
-    "main.js": "/cilantro/static/js/main.55cbfae7.chunk.js",
-    "main.js.map": "/cilantro/static/js/main.55cbfae7.chunk.js.map",
+    "main.css": "/cilantro/static/css/main.29edcb39.chunk.css",
+    "main.js": "/cilantro/static/js/main.87df65fc.chunk.js",
+    "main.js.map": "/cilantro/static/js/main.87df65fc.chunk.js.map",
     "runtime-main.js": "/cilantro/static/js/runtime-main.613a0bbc.js",
     "runtime-main.js.map": "/cilantro/static/js/runtime-main.613a0bbc.js.map",
     "static/js/2.c99bb94b.chunk.js": "/cilantro/static/js/2.c99bb94b.chunk.js",
     "static/js/2.c99bb94b.chunk.js.map": "/cilantro/static/js/2.c99bb94b.chunk.js.map",
     "index.html": "/cilantro/index.html",
-    "static/css/main.ab1846f5.chunk.css.map": "/cilantro/static/css/main.ab1846f5.chunk.css.map",
+    "static/css/main.29edcb39.chunk.css.map": "/cilantro/static/css/main.29edcb39.chunk.css.map",
     "static/js/2.c99bb94b.chunk.js.LICENSE.txt": "/cilantro/static/js/2.c99bb94b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.613a0bbc.js",
     "static/js/2.c99bb94b.chunk.js",
-    "static/css/main.ab1846f5.chunk.css",
-    "static/js/main.55cbfae7.chunk.js"
+    "static/css/main.29edcb39.chunk.css",
+    "static/js/main.87df65fc.chunk.js"
   ]
 }

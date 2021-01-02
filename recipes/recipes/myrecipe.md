@@ -1,10 +1,14 @@
 ---
 layout: recipe
 title: "test"
-image: test.jpg
+image: pizza.jpg
 tags: dinner, party
+
 yield: 2 servings
 time: 50 minutes
+
+sourceURL: https://www.seriouseats.com/recipes/2013/01/foolproof-pan-pizza-recipe.html
+sourceAuthor: J. Kenji López-Alt
 
 ingredients:
   - 2 lbs meat
