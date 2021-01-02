@@ -10,15 +10,15 @@ export default function CookbookView(props: CookbookData) {
     const imgURL = process.env.PUBLIC_URL + "/recipes/images/" + r.imgUrl;
     return (
       <div className="collection-tile-wrapper">
+        <Link className="collection-tile-text" to={href}>
+          {r.title}
+        </Link>
         <div
           className="collection-tile"
           style={{
             backgroundImage: `url(${imgURL})`,
           }}
         ></div>
-        <Link className="collection-tile-text" to={href}>
-          {r.title}
-        </Link>
       </div>
     );
   });
