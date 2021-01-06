@@ -250,3 +250,45 @@ a:visited .recipe-source{
 .collection-tile-text {
   font-size: 2rem;
 }
+
+
+@media screen and (max-width: 700px) {
+  .app {
+    flex-direction: column;
+  }
+
+  .app-sidebar-c, .app-sidebar, .app-sidebar-body {
+    flex-direction: row;
+    width: 100%;
+  }
+  
+  .app-sidebar-footer {
+    display: none;
+  }
+
+  .app-content {
+    padding: 0px;
+  }
+
+  .recipe-meta, .recipe-info, .recipe-body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .recipe-picture {
+    max-width: 80%;
+  }
+
+  pre {
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+  }
+
+  .collection-tile-wrapper {
+    width: 90%;
+    max-width: 90%;
+  }
+}
