@@ -40,7 +40,7 @@ export function SearchView(props: { recipes: Recipe[] }) {
 
   const cookbook = {
     title: "Results",
-    body: "",
+    description: "",
     recipes: filteredRecipes,
   };
 

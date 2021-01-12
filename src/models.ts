@@ -1,8 +1,8 @@
+// A "Cookbook" is a collection of recipes
 export interface CookbookData {
   title: string;
+  description: string;
   recipes: Recipe[];
-  //collections: Collection
-  body: string;
 }
 
 export interface Ingredient {

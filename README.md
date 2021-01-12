@@ -1,4 +1,4 @@
-# Cilantro
+# 🌿 Cilantro
 
 Cilantro is a plaintext recipe viewer. Store your recipes as text files, but get all the benefits of a rich viewer. Inspired by [Chowdown](https://chowdown.io), but written from the ground up in React.
 
@@ -7,7 +7,7 @@ Cilantro is a plaintext recipe viewer. Store your recipes as text files, but get
 Recipes are stored as `markdown` files, with all the action happening in the front matter section.
 
 TODO: Put an actual recipe here :)
-TODO: add source field
+
 ```markdown
 ---
 ---

@@ -31,7 +31,7 @@ export function TagPageWrapper(props: { index: { [tag: string]: Recipe[] } }) {
   const { tag } = useParams<{ tag: string }>();
   const tagbookData = {
     title: "Tag: " + tag,
-    body: "",
+    description: "",
     recipes: props.index[tag],
   };
   return <CookbookView {...tagbookData} />;

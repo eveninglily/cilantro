@@ -21,7 +21,7 @@ code {
   font-family: "Open Sans", sans-serif;
 }
 
-.collection-title, .collection-tile-text {
+.cookbook-title, .cookbook-tile-text {
   font-family: 'Lato', sans-serif;
 }
 
@@ -40,7 +40,7 @@ code {
   --content-bg-color: white;
   --sidebar-color: #dddddd;
   --sidebar-text-color: black;
-  --collection-text-color: black;
+  --cookbook-text-color: black;
 }
 
 .app-theme-red {
@@ -49,7 +49,7 @@ code {
   --content-bg-color: white;
   --sidebar-color: #ff4136;
   --sidebar-text-color: black;
-  --collection-text-color: black;
+  --cookbook-text-color: black;
 }
 
 .app-theme-blue {
@@ -58,7 +58,7 @@ code {
   --content-bg-color: white;
   --sidebar-color: #0074d9;
   --sidebar-text-color: black;
-  --collection-text-color: black;
+  --cookbook-text-color: black;
 }
 
 .app-theme-green {
@@ -67,7 +67,7 @@ code {
   --content-bg-color: white;
   --sidebar-color: #01ff70;
   --sidebar-text-color: black;
-  --collection-text-color: black;
+  --cookbook-text-color: black;
 }
 
 .app-theme-dark {
@@ -76,7 +76,7 @@ code {
   --content-bg-color: #121212;
   --sidebar-color: black;
   --sidebar-text-color: white;
-  --collection-text-color: white;
+  --cookbook-text-color: white;
 }
 
 .app-content {
@@ -135,36 +135,36 @@ a:hover.app-sidebar-link span {
   color: var(--sidebar-text-color);
 }
 
-.collection-holder {
+.cookbook-holder {
   max-height: 100vh;
   overflow-y: auto;
 }
 
-.collection-description {
+.cookbook-description {
   font-family: "Open Sans", sans-serif !important;
 }
 
-.collection {
+.cookbook {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 
-.collection-tile-wrapper {
+.cookbook-tile-wrapper {
   margin: 10px;
   flex-grow: 1;
   max-width: calc(33% - 20px);
   width: calc(33% - 20px);
 }
 
-a.collection-tile-text,
-a:link.collection-tile-text,
-a:visited.collection-tile-text {
+a.cookbook-tile-text,
+a:link.cookbook-tile-text,
+a:visited.cookbook-tile-text {
   font-size: 2.5rem;
-  color: var(--collection-text-color);
+  color: var(--cookbook-text-color);
 }
 
-.collection-tile a:hover {
+.cookbook-tile a:hover {
   border-bottom: 3px solid black;
 }
 
@@ -239,7 +239,7 @@ a:visited .recipe-source{
   color: var(--tag-link-color);
 }
 
-.collection-tile {
+.cookbook-tile {
   height: 200px;
   background: #7fdbff;
   background-size: cover;
@@ -247,7 +247,7 @@ a:visited .recipe-source{
     1px 1px 0 #000;
 }
 
-.collection-tile-text {
+.cookbook-tile-text {
   font-size: 2rem;
 }
 
@@ -287,7 +287,7 @@ a:visited .recipe-source{
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
   }
 
-  .collection-tile-wrapper {
+  .cookbook-tile-wrapper {
     width: 90%;
     max-width: 90%;
   }

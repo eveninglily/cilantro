@@ -9,12 +9,12 @@ export default function CookbookView(props: CookbookData) {
     const href = "/r/" + r.id;
     const imgURL = process.env.PUBLIC_URL + "/recipes/images/" + r.imgUrl;
     return (
-      <div className="collection-tile-wrapper">
-        <Link className="collection-tile-text" to={href}>
+      <div className="cookbook-tile-wrapper">
+        <Link className="cookbook-tile-text" to={href}>
           {r.title}
         </Link>
         <div
-          className="collection-tile"
+          className="cookbook-tile"
           style={{
             backgroundImage: `url(${imgURL})`,
           }}
@@ -24,10 +24,10 @@ export default function CookbookView(props: CookbookData) {
   });
 
   return (
-    <div className="collection-holder">
-      <h1 className="collection-title">{props.title}</h1>
-      <pre className="collection-description">{props.body}</pre>
-      <div className="collection">{tiles}</div>
+    <div className="cookbook-holder">
+      <h1 className="cookbook-title">{props.title}</h1>
+      <pre className="cookbook-description">{props.description}</pre>
+      <div className="cookbook">{tiles}</div>
     </div>
   );
 }

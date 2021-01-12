@@ -92,7 +92,7 @@ export default function App() {
       Promise.all(recipes).then((rs: any) => {
         const book = {
           title: parsed.data.title,
-          body: parsed.content,
+          description: parsed.content,
           recipes: rs,
         };
         setCookbook(book);
