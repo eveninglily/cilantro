@@ -1,21 +1,24 @@
 ---
 layout: recipe
-title: "test"
+title: "Foolproof Pan Pizza"
 image: pizza.jpg
 tags: dinner, party
 
 yield: 2 servings
-time: 50 minutes
+time: 15 minutes, 24hr waiting period
 
 sourceURL: https://www.seriouseats.com/recipes/2013/01/foolproof-pan-pizza-recipe.html
 sourceAuthor: J. Kenji López-Alt
 
 ingredients:
-  - 2 lbs meat
-  - 1 lb other ingredient
-  - 2 tbsp butter
-  - 1/2 cup soy sauce
-  - canola oil
+  - 400g bread flour
+  - 10g kosher salt
+  - 4g instant yeast
+  - 275g water
+  - 8g EVOO
+  - pizza sauce
+  - mozzarella
+  - other toppings
 
 directions:
   - Step 1
