@@ -5,6 +5,7 @@ import CookbookView from "./CookbookView";
 
 export function TagCloudView(props: { index: { [tag: string]: Recipe[] } }) {
   const tags = [];
+
   for (const t in props.index) {
     tags.push(t);
   }

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { Ingredient, Recipe } from "../models";
+import Helmet from "react-helmet";
 import "../App.css";
 
 function Tag(props: { text: string }) {
@@ -48,6 +49,7 @@ export default function RecipeView(props: Recipe) {
 
   return (
     <article className="recipe hRecipe h-recipe">
+      <RecipeMeta {...props} />
       <h1 className="recipe-title fn p-name">{props.title}</h1>
       <header className="recipe-meta">
         {props.serves && (
@@ -112,4 +114,14 @@ function RecipeJSONLD(props: { recipe: Recipe }) {
     recipeYield: props.recipe.serves,
   };
   return <script type="application/ld+json">{JSON.stringify(data)}</script>;
+}
+
+function RecipeMeta(props: Recipe) {
+  return (
+    <Helmet>
+      <title>{props.title} - Cilantro</title>
+      <meta name="description" content={props.bodyText} />
+      <meta property="og:type" content="article" />
+    </Helmet>
+  );
 }

@@ -12,7 +12,7 @@ If you want to run your own webserver; just fork the repo, make your changes in 
 
 Electron downloads still to come
 
-# 📋 Recipe Format
+# 📘 Recipe Format
 
 Recipes are stored as `markdown` files, with all the action happening in the front matter section.
 
@@ -56,7 +56,7 @@ As of now, anything that works in Chowdown should work here. We're working on ad
 
 Long-term, I'd like to support importing other recipe formats into this one.
 
-## Index
+## 📋 Index
 Right now, you need to create a `README.md` file formatted in this way to import recipes.
 
 TODO: document this more & talk about plans to loosen it
@@ -74,17 +74,14 @@ This supports several lines.
 It does not currently support any other markdown formatting, but might in the future!
 ```
 
-## Exportability
+## 📬 Exportability
+
+Data portability and freedom is important. Since your Cilantro recipes are stored in plaintext, it's really easy to share, sync, or move them.
+
+In the web version, recipe pages also contain metadata for all the recipe formats I know about:
 
 Since all the recipes are stored in plaintext, it's very easy to export them, back them up, and sync with your service of choice.
 
-The recipe pages also have
-
-- https://schema.org/Recipe data
-- Required markup for h-recipe and hRecipe formats
-
-# ❓ FAQ
-
-## Why not create this as a Jekyll/Hugo/etc. theme instead?
-
-I gave _a lot_ of thought to this. Ultimately, I think that while the basic features can be done better by these static site generators, some of the more advanced features would be difficult to replicate.
+I'm also working on allowing some sort of static generation for the web version. When that's done, pages will include
+- [Recipe schema](https://schema.org/Recipe) data
+- [h-recipe](https://microformats.org/wiki/h-recipe) and [hRecipe](https://microformats.org/wiki/hrecipe) markup

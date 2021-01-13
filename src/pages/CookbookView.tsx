@@ -27,7 +27,9 @@ function CookbookTile(props: Recipe) {
 }
 
 export default function CookbookView(props: CookbookData) {
-  const tiles = props.recipes.map((r) => {
+  const recipes = props.recipes || []
+
+  const tiles = recipes.map((r) => {
     return CookbookTile(r);
   });
 

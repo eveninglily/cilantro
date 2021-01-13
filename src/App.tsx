@@ -6,7 +6,7 @@ import "./App.css";
 import { RecipeWrapper } from "./pages/RecipeView";
 import CookbookView from "./pages/CookbookView";
 
-import { Switch, Route, HashRouter } from "react-router-dom";
+import { Switch, Route, BrowserRouter } from "react-router-dom";
 import { CookbookData, Recipe } from "./models";
 import SettingsView from "./pages/SettingsView";
 import { SearchView } from "./pages/SearchView";
@@ -130,7 +130,7 @@ export default function App() {
 
   return (
     <SettingsContext.Provider value={settings}>
-      <HashRouter>
+      <BrowserRouter >
         <div className={"app app-theme-" + settings.theme}>
           <Sidebar />
           <main className="app-content">
@@ -159,7 +159,7 @@ export default function App() {
             </Switch>
           </main>
         </div>
-      </HashRouter>
+      </BrowserRouter>
     </SettingsContext.Provider>
   );
 }
