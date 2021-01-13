@@ -1,6 +1,6 @@
 /* TODO: Replace w/ local imports */
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 
 body {
   margin: 0;
@@ -25,8 +25,9 @@ code {
   border-top: 1px solid black;
 }
 
-.cookbook-title, .cookbook-tile-text {
-  font-family: 'Lato', sans-serif;
+.cookbook-title,
+.cookbook-tile-text {
+  font-family: "Lato", sans-serif;
 }
 
 .app {
@@ -131,11 +132,11 @@ a:visited.app-sidebar-link {
 }
 
 a:hover.app-sidebar-link {
-  background-color: white;
+  background-color: var(--content-bg-color);
 }
 
 a:hover.app-sidebar-link span {
-  border-bottom: 3px solid black;
+  border-bottom: 3px solid var(--sidebar-text-color);
 }
 
 .app-sidebar-footer {
@@ -161,11 +162,14 @@ a:hover.app-sidebar-link span {
 .cookbook-tile {
   margin: 10px;
   flex-grow: 1;
-  max-width: calc(33% - 20px);
+  max-width: 450px;
   width: calc(33% - 20px);
-  
-  
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.app-theme-dark .cookbook-tile {
+  box-shadow: 0 1px 3px rgba(255, 255, 255, 0.12), 0 1px 2px rgba(255, 255, 255, 0.24);
 }
 
 a.cookbook-tile-title,
@@ -180,6 +184,7 @@ a:visited.cookbook-tile-title {
 
 a.cookbook-tile-title:hover {
   text-decoration: underline;
+  text-decoration-color: white;
 }
 
 .cookbook-tile-image {
@@ -192,13 +197,13 @@ a.cookbook-tile-title:hover {
 }
 
 .cookbook-tile-image:after {
-  content:"";
-  position:absolute;
-  top:0;
-  bottom:0;
-  left:0;
-  right:0;
-  background:rgba(0,0,0,0.4);
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .cookbook-tile-text {
@@ -272,7 +277,7 @@ a.cookbook-tile-title:hover {
 
 a.recipe-source,
 a:link.recipe-source,
-a:visited .recipe-source{
+a:visited .recipe-source {
   color: var(--tag-link-color);
 }
 
@@ -281,11 +286,13 @@ a:visited .recipe-source{
     flex-direction: column;
   }
 
-  .app-sidebar-c, .app-sidebar, .app-sidebar-body {
+  .app-sidebar-c,
+  .app-sidebar,
+  .app-sidebar-body {
     flex-direction: row;
     width: 100%;
   }
-  
+
   .app-sidebar-footer {
     display: none;
   }
@@ -294,7 +301,9 @@ a:visited .recipe-source{
     padding: 0px;
   }
 
-  .recipe-meta, .recipe-info, .recipe-body {
+  .recipe-meta,
+  .recipe-info,
+  .recipe-body {
     display: flex;
     flex-direction: column;
   }
@@ -304,11 +313,11 @@ a:visited .recipe-source{
   }
 
   pre {
-    white-space: pre-wrap;       /* Since CSS 2.1 */
-    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-    white-space: -pre-wrap;      /* Opera 4-6 */
-    white-space: -o-pre-wrap;    /* Opera 7 */
-    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    white-space: pre-wrap; /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
   }
 
   .cookbook-tile-wrapper {

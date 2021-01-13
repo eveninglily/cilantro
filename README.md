@@ -2,14 +2,23 @@
 
 Cilantro is a plaintext recipe viewer. Store your recipes as text files, but get all the benefits of a rich viewer. Inspired by [Chowdown](https://chowdown.io), but written from the ground up in React.
 
-# Recipe Format
+# 🚀 Getting Started
+
+(TODO: Improve these docs)
+
+There are be two main ways to use Cilantro: as a webapp, which you can host (either through Github pages or your own setup), or as an Electron app to use locally.
+
+If you want to run your own webserver; just fork the repo, make your changes in `public/recipes`, and then `npm run deploy` to push to the `gh-pages` branch.
+
+Electron downloads still to come
+
+# 📋 Recipe Format
 
 Recipes are stored as `markdown` files, with all the action happening in the front matter section.
 
-TODO: Put an actual recipe here :)
+TODO: Expand on this recipe
 
 ```markdown
----
 ---
 layout: recipe
 title: "Foolproof Pan Pizza"
@@ -74,9 +83,7 @@ The recipe pages also have
 - https://schema.org/Recipe data
 - Required markup for h-recipe and hRecipe formats
 
-# Getting Started
-
-TODO
+# ❓ FAQ
 
 ## Why not create this as a Jekyll/Hugo/etc. theme instead?
 

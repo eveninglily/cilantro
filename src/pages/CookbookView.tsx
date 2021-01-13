@@ -7,20 +7,21 @@ import "../App.css";
 function CookbookTile(props: Recipe) {
   const href = "/r/" + props.id;
   const imgURL = process.env.PUBLIC_URL + "/recipes/images/" + props.imgUrl;
-  const desc = props.bodyText && (props.bodyText.substring(0, 100) + "...");
+  const desc = props.bodyText && props.bodyText.substring(0, 100) + "...";
 
   return (
     <div className="cookbook-tile">
-      
       <div
-          className="cookbook-tile-image"
-          style={{
-            backgroundImage: `url(${imgURL})`,
-          }}
-        ><Link className="cookbook-tile-title" to={href}>{props.title}</Link></div>
-        <div className="cookbook-tile-text">
-          {desc}
-        </div>
+        className="cookbook-tile-image"
+        style={{
+          backgroundImage: `url(${imgURL})`,
+        }}
+      >
+        <Link className="cookbook-tile-title" to={href}>
+          {props.title}
+        </Link>
+      </div>
+      <div className="cookbook-tile-text">{desc}</div>
     </div>
   );
 }

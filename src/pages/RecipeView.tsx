@@ -28,7 +28,9 @@ export default function RecipeView(props: Recipe) {
     // TODO: Add hrecipe unit stuff
     return (
       <li className="ingredient p-ingredient">
-        {i.amount !== "" && <span className="ingredient-amount">{i.amount}</span>}
+        {i.amount !== "" && (
+          <span className="ingredient-amount">{i.amount}</span>
+        )}
         <span className="ingredient-item">{i.item}</span>
       </li>
     );
