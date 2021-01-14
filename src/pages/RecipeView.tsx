@@ -117,11 +117,19 @@ function RecipeJSONLD(props: { recipe: Recipe }) {
 }
 
 function RecipeMeta(props: Recipe) {
+  const imgURL = process.env.PUBLIC_URL + "/recipes/images/" + props.imgUrl;
+
   return (
     <Helmet>
       <title>{props.title} - Cilantro</title>
-      <meta name="description" content={props.bodyText} />
-      <meta property="og:type" content="article" />
+      <meta content="article" property="og:type"  />
+      <meta content={props.title} property="og:title" />
+      <meta content={props.bodyText} property="og:description" />
+      <meta content={imgURL} property="og:image" />
+      <meta property="og:site_name" content="Cilantro Recipes" />
+      {props.sourceAuthor && <meta property="og:author" content={props.sourceAuthor} />}
+      {props.sourceURL && <meta property="og:url" content={props.sourceURL} />}
+      <meta name="twitter:card" content="summary_large_image" />
     </Helmet>
   );
 }

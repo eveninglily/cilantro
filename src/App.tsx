@@ -130,7 +130,7 @@ export default function App() {
 
   return (
     <SettingsContext.Provider value={settings}>
-      <BrowserRouter >
+      <BrowserRouter basename="cilantro" >
         <div className={"app app-theme-" + settings.theme}>
           <Sidebar />
           <main className="app-content">

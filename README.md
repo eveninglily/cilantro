@@ -82,6 +82,7 @@ In the web version, recipe pages also contain metadata for all the recipe format
 
 Since all the recipes are stored in plaintext, it's very easy to export them, back them up, and sync with your service of choice.
 
-I'm also working on allowing some sort of static generation for the web version. When that's done, pages will include
+The site can be statically built, so the pages also offer a lot of metadata
 - [Recipe schema](https://schema.org/Recipe) data
 - [h-recipe](https://microformats.org/wiki/h-recipe) and [hRecipe](https://microformats.org/wiki/hrecipe) markup
+- Rich embed data
