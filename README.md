@@ -4,20 +4,27 @@ Cilantro is a plaintext recipe viewer. Store your recipes as text files, but get
 
 # 🚀 Getting Started
 
-(TODO: Improve these docs)
+## 📑 As a website
 
-There are be two main ways to use Cilantro: as a webapp, which you can host (either through Github pages or your own setup), or as an Electron app to use locally.
+Here's how to deploy on Github pages. If you want to deploy to another environment, just replace `npm run deploy` with `npm run build`, and use the `build` folder whereever you want.
 
-If you want to run your own webserver; just fork the repo, make your changes in `public/recipes`, and then `npm run deploy` to push to the `gh-pages` branch.
+- Clone the repo
+- `npm install`
+- Add pictures, recipes, etc to `public/recipes`, and edit the `README.md` to include all of the recipes
+- Edit the `homepage` in `package.json` to point to your GH Pages
+- `npm run deploy`
 
-Electron downloads still to come
+Note: If you want a static-ish built site, you'll want puppeteer and all dependencies installed. If you don't want that, remove the `postbuild` step in `package.json`
+
+## 🖥️ As a desktop application
+
+Cilantro will be available as a desktop app soon, with Electron.
 
 # 📘 Recipe Format
 
 Recipes are stored as `markdown` files, with all the action happening in the front matter section.
 
 TODO: Expand on this recipe
-
 ```markdown
 ---
 layout: recipe
@@ -57,9 +64,8 @@ As of now, anything that works in Chowdown should work here. We're working on ad
 Long-term, I'd like to support importing other recipe formats into this one.
 
 ## 📋 Index
-Right now, you need to create a `README.md` file formatted in this way to import recipes.
+Right now, you need to create a `README.md` file formatted in this way to import recipes. The `recipes` field should just be a list of the filenames, minus the `md` portion.
 
-TODO: document this more & talk about plans to loosen it
 ```markdown
 ---
 title: "Evan's Recipes"
