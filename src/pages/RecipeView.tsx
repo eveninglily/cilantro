@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Ingredient, Recipe } from "../models";
 import Helmet from "react-helmet";
+import Modal from "react-modal";
 import "../App.css";
+import { Type } from "react-feather";
+
+Modal.setAppElement("#root");
 
 function Tag(props: { text: string }) {
   const url = "/tags/" + props.text;
@@ -16,6 +20,8 @@ export function RecipeWrapper(props: { recipes: Recipe[] }) {
 }
 
 export default function RecipeView(props: Recipe) {
+  const [textModalOpen, setTextModalOpen] = useState(false);
+
   const tagHTML = props.tags.map((tag, i) => {
     return (
       <span className="recipe-tag" key={i}>
@@ -48,9 +54,31 @@ export default function RecipeView(props: Recipe) {
   const imgURL = process.env.PUBLIC_URL + "/recipes/images/" + props.imgUrl;
 
   return (
-    <article className="recipe hRecipe h-recipe">
+    <article id="recipe" className="recipe hRecipe h-recipe">
       <RecipeMeta {...props} />
-      <h1 className="recipe-title fn p-name">{props.title}</h1>
+      <Modal isOpen={textModalOpen}>
+        <pre>{props.raw}</pre>
+        <button
+          onClick={() => {
+            setTextModalOpen(false);
+          }}
+        >
+          Close modal
+        </button>
+      </Modal>
+      <div className="recipe-title-bar">
+        <h1 className="recipe-title fn p-name">{props.title}</h1>
+        <div>
+          <div
+            onClick={() => {
+              setTextModalOpen(true);
+            }}
+            className="meta-button"
+          >
+            <Type /> Raw Text
+          </div>
+        </div>
+      </div>
       <header className="recipe-meta">
         {props.serves && (
           <span className="recipe-serves yield">
@@ -122,12 +150,14 @@ function RecipeMeta(props: Recipe) {
   return (
     <Helmet>
       <title>{props.title} - Cilantro</title>
-      <meta content="article" property="og:type"  />
+      <meta content="article" property="og:type" />
       <meta content={props.title} property="og:title" />
       <meta content={props.bodyText} property="og:description" />
       <meta content={imgURL} property="og:image" />
       <meta property="og:site_name" content="Cilantro Recipes" />
-      {props.sourceAuthor && <meta property="og:author" content={props.sourceAuthor} />}
+      {props.sourceAuthor && (
+        <meta property="og:author" content={props.sourceAuthor} />
+      )}
       {props.sourceURL && <meta property="og:url" content={props.sourceURL} />}
       <meta name="twitter:card" content="summary_large_image" />
     </Helmet>

@@ -49,7 +49,7 @@ export default function SettingsView(props: {
               onChange={() => setSelectedTheme("blue")}
               className="theme-radio-input"
             />
-            Blue
+            Blue (Light)
           </label>
         </div>
         <div className="theme-radio">
@@ -62,7 +62,7 @@ export default function SettingsView(props: {
               onChange={() => setSelectedTheme("green")}
               className="theme-radio-input"
             />
-            Green
+            Green (Light)
           </label>
         </div>
         <div className="theme-radio">
@@ -75,7 +75,7 @@ export default function SettingsView(props: {
               onChange={() => setSelectedTheme("red")}
               className="theme-radio-input"
             />
-            Red
+            Red (Light)
           </label>
         </div>
         <div className="theme-radio">

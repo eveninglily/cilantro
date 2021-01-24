@@ -38,7 +38,7 @@ export default function Sidebar() {
           hidden: settings.sidebarCompact,
         })}
       >
-        <i>Cilantro v0</i> <br/> Made with {emoji}
+        <i>Cilantro v0</i> <br /> Made with {emoji}
       </footer>
     </nav>
   );

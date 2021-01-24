@@ -16,7 +16,6 @@ import { TagCloudView, TagPageWrapper } from "./pages/TagsView";
 
 function parseChowdownMd(id: number, data: string): Recipe {
   const parsed = matter(data);
-  console.log(parsed);
 
   const title = parsed.data.title;
   const tags = parsed.data.tags.split(",").map((t: string) => t.trim());
@@ -43,6 +42,7 @@ function parseChowdownMd(id: number, data: string): Recipe {
     time,
     ingredients,
     bodyText: parsed.content,
+    raw: data,
   };
 }
 
@@ -130,7 +130,7 @@ export default function App() {
 
   return (
     <SettingsContext.Provider value={settings}>
-      <BrowserRouter basename="cilantro" >
+      <BrowserRouter basename="cilantro">
         <div className={"app app-theme-" + settings.theme}>
           <Sidebar />
           <main className="app-content">
