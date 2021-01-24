@@ -297,6 +297,10 @@ a:visited .recipe-source {
   padding: 2px;
 }
 
+.strikethrough {
+  text-decoration: line-through;
+}
+
 @media screen and (max-width: 700px) {
   .app {
     flex-direction: column;

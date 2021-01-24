@@ -4,7 +4,8 @@ import { Ingredient, Recipe } from "../models";
 import Helmet from "react-helmet";
 import Modal from "react-modal";
 import "../App.css";
-import { Type } from "react-feather";
+import { Check, Type } from "react-feather";
+import classNames from "classnames";
 
 Modal.setAppElement("#root");
 
@@ -17,6 +18,39 @@ export function RecipeWrapper(props: { recipes: Recipe[] }) {
   const { id } = useParams<{ id: string }>();
   const x = Number(id);
   return <RecipeView {...props.recipes[x]} />;
+}
+
+function PrepStep(props: { text: string }) {
+  const [st, setSt] = useState(false);
+
+  const cn = classNames("prep-steps", {
+    strikethrough: st,
+  });
+
+  return (
+    <li className={cn}>
+      <p className="prep-step-text">{props.text}</p>
+      <Check onClick={() => setSt(!st)} />
+    </li>
+  );
+}
+
+function IngredientView(props: Ingredient) {
+  const [st, setSt] = useState(false);
+
+  const cn = classNames("ingredient", "p-ingredient", {
+    "strikethrough": st
+  })
+
+// TODO: Add hrecipe unit stuff
+return (
+  <li className={cn} onClick={() => {setSt(!st)}}>
+    {props.amount !== "" && (
+      <span className="ingredient-amount">{props.amount}</span>
+    )}
+    <span className="ingredient-item">{props.item}</span>
+  </li>
+);
 }
 
 export default function RecipeView(props: Recipe) {
@@ -32,23 +66,11 @@ export default function RecipeView(props: Recipe) {
   });
 
   const ingredients = props.ingredients.map((i: Ingredient) => {
-    // TODO: Add hrecipe unit stuff
-    return (
-      <li className="ingredient p-ingredient">
-        {i.amount !== "" && (
-          <span className="ingredient-amount">{i.amount}</span>
-        )}
-        <span className="ingredient-item">{i.item}</span>
-      </li>
-    );
+    return <IngredientView {...i} />
   });
 
   const steps = props.steps.map((s) => {
-    return (
-      <li className="prep-step">
-        <p className="prep-step-text">{s}</p>
-      </li>
-    );
+    return <PrepStep text={s} />;
   });
 
   const imgURL = process.env.PUBLIC_URL + "/recipes/images/" + props.imgUrl;
